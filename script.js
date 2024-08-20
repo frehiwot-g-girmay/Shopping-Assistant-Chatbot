@@ -51,13 +51,13 @@ const generateResponse = (incomingChatLi) => {
 		})
 		.then(data => {
 			messageElement
-			.textContent = "https://faustosarlie.com/";
+			.textContent = data.choices[0].message.content;
 		})
 		.catch((error) => {
 			messageElement
 			.classList.add("error");
 			messageElement
-			.textContent = "https://faustosarlie.com/";
+			.textContent = " Visit our website https://faustosarlie.com/ and send screenshoot of your order";
 		})
 		.finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
