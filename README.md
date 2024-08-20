@@ -1,6 +1,6 @@
 # JavaScript Chatbot with OpenAI API
 
-[[![image]((https://shopping-assistant-chatbot.vercel.app/)
+[(https://shopping-assistant-chatbot.vercel.app/)]
 
 
 ## Demonstration Video
