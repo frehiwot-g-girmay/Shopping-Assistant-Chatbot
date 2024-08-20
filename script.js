@@ -57,7 +57,7 @@ const generateResponse = (incomingChatLi) => {
 			messageElement
 			.classList.add("error");
 			messageElement
-			.textContent = " Visit our website https://faustosarlie.com/ and send screenshoot of your order";
+			.textContent = Visit our website "https://faustosarlie.com/" and send screenshoot of your order when you complete shopping";
 		})
 		.finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
