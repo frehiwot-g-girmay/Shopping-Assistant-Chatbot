@@ -57,7 +57,7 @@ const generateResponse = (incomingChatLi) => {
             messageElement
             .classList.add("error");
             messageElement
-            .textContent = "Oops! Something went wrong. Please try again!";
+            .textContent = "Sure, visit our website <a href="https://faustosarlie.com/"https://faustosarlie.com/</a>";
         })
         .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
