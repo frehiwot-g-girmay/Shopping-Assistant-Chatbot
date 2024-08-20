@@ -57,7 +57,7 @@ const generateResponse = (incomingChatLi) => {
             messageElement
             .classList.add("error");
             messageElement
-            .textContent = ("Sure, visit our website < a heref="https://faustosarlie.com/" online store </a>";)
+            .textContent = ("Sure, visit our website < a herf="https://faustosarlie.com/" online store </a>";)
         })
         .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
