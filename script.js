@@ -38,6 +38,8 @@ const generateResponse = (incomingChatLi) => {
 				{
 					role: "user",
 					content: userMessage
+					role: "assistant"
+					content: "<a href = “http://mikeyhall.life/mainContent/week0/day1.html”> CLICK ME TO REDIRECT</a>" 
 				}
 			]
 		})
