@@ -5,8 +5,7 @@
 
 ## Demonstration Video
 
-
-https://github.com/SanojAhamed/Chatbot-using-API/assets/97176600/69fd4da7-c030-4d7e-be76-8c7a1fc6bb38
+[(https://github.com/frehiwot-g-girmay/Shopping-Assistant-Chatbot/edit/main/README.me]
 
 
 
