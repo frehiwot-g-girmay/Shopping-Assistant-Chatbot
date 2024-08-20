@@ -23,7 +23,6 @@ const createChatLi = (message, className) => {
 
 const generateResponse = (incomingChatLi) => {
 	const API_URL = "https://api.openai.com/v1/chat/completions";
-	const myURL = new URL('/foo', 'https://faustosarlie.com/'); 
 	const messageElement = incomingChatLi
 	.querySelector("p");
 	const requestOptions = {
@@ -38,8 +37,6 @@ const generateResponse = (incomingChatLi) => {
 				{
 					role: "user",
 					content: userMessage
-					role: "assistant"
-					content: "html" 
 				}
 			]
 		})
@@ -60,7 +57,7 @@ const generateResponse = (incomingChatLi) => {
 			messageElement
 			.classList.add("error");
 			messageElement
-			.textContent = "Oops! Something went wrong. Please try again!";
+			.textContent = Sure, Visit our Website <a href = “https://faustosarlie.com/”> https://faustosarlie.com/ </a> ";
 		})
 		.finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
