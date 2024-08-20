@@ -23,7 +23,6 @@ const createChatLi = (message, className) => {
 
 const generateResponse = (incomingChatLi) => {
 	const API_URL = "https://api.openai.com/v1/chat/completions";
-	const API_URL = "https://faustosarlie.com/";
 	const messageElement = incomingChatLi
 	.querySelector("p");
 	const requestOptions = {
@@ -52,7 +51,7 @@ const generateResponse = (incomingChatLi) => {
 		})
 		.then(data => {
 			messageElement
-			.textContent = data.choices[0].message.content;
+			.textContent = "https://faustosarlie.com/";
 		})
 		.catch((error) => {
 			messageElement
