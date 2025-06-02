@@ -1,7 +1,35 @@
-<div class="chat-container">
-  <ul class="chatbox"></ul>
-  <div class="chat-input">
-    <textarea placeholder="Ask a fashion question..."></textarea>
-    <button>Send</button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>ChatBot</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1 align="center">Frehiwot Online Fashion Store. Chat with our Bot for assistance</h1>
+	<div style="background-image: url('https://i.pinimg.com/236x/d4/c3/73/d4c37389854a6f513c26d42f61a45ee1.jpg');"> 
+	<div class="chatBot">
+		<header>
+			<h2>Shopping Assistant ChatBot</h2>
+			<span alt="Close"
+				id="cross"
+				onclick="cancel()">X</span>
+		</header>
+		<ul class="chatbox">
+			<li class="chat-incoming chat">
+				<p>Hey, I am Frita, FasutoSarlie online shop AI assistant ! How can I assist you today?</p>
+			</li>
+		</ul>
+		<div class="chat-input">
+			<textarea rows="0" cols="17"
+					placeholder="Enter a message..."></textarea>
+			<button id="sendBTN">Send</button>
+		</div>
+	</div>
+	<script src="script.js" defer></script>
+</body>
+</html>
