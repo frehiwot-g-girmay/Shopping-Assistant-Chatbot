@@ -2,7 +2,7 @@ const chatInput = document.querySelector('.chat-input textarea');
 const sendChatBtn = document.querySelector('.chat-input button');
 const chatbox = document.querySelector('.chatbox');
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const createChatLi = (message, className) => {
   const chatLi = document.createElement('li');
