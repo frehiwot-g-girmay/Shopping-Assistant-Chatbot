@@ -1,9 +1,12 @@
+// Select DOM elements
 const chatInput = document.querySelector('.chat-input textarea');
 const sendChatBtn = document.querySelector('.chat-input button');
 const chatbox = document.querySelector('.chatbox');
 
-const API_KEY = "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";
+// Your DeepAI API key
+const API_KEY = "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"; // <-- Replace with your actual API key
 
+// Function to create chat message elements
 const createChatLi = (message, className) => {
   const chatLi = document.createElement('li');
   chatLi.classList.add('chat', className);
@@ -11,6 +14,7 @@ const createChatLi = (message, className) => {
   return chatLi;
 };
 
+// Function to generate chat response from OpenAI
 const generateResponse = (userMessage, incomingChatLi) => {
   const messageElement = incomingChatLi.querySelector('p');
 
@@ -24,10 +28,16 @@ const generateResponse = (userMessage, incomingChatLi) => {
       model: 'gpt-3.5-turbo',
       messages: [
         {
+          role: 'system',
+          content: 'You are a fashion expert assistant. Help users with fashion queries, style tips, clothing recommendations, and fashion trends.'
+        },
+        {
           role: 'user',
           content: userMessage
         }
-      ]
+      ],
+      temperature: 0.7,
+      max_tokens: 150
     })
   })
   .then(res => {
@@ -37,9 +47,9 @@ const generateResponse = (userMessage, incomingChatLi) => {
     return res.json();
   })
   .then(data => {
-    // Remove "Typing..." message
+    // Remove the "Typing..." placeholder
     chatbox.removeChild(incomingChatLi);
-    // Create bot reply
+    // Extract reply and display
     const reply = data.choices[0].message.content.trim();
     const botReplyLi = createChatLi(reply, 'chat-incoming');
     chatbox.appendChild(botReplyLi);
@@ -47,28 +57,39 @@ const generateResponse = (userMessage, incomingChatLi) => {
   })
   .catch((error) => {
     chatbox.removeChild(incomingChatLi);
-    const errorMsg = createChatLi('Oops! Something went wrong. Please try again!', 'chat-incoming error');
+    const errorMsg = createChatLi('Oops! Something went wrong. Please try again.', 'chat-incoming error');
     chatbox.appendChild(errorMsg);
     chatbox.scrollTo(0, chatbox.scrollHeight);
+    console.error(error);
   });
 };
 
+// Handle user input
 const handleChat = () => {
   const userMessage = chatInput.value.trim();
   if (!userMessage) return;
 
-  // Add user message to chat
+  // Add user's message to chat
   chatbox.appendChild(createChatLi(userMessage, 'chat-outgoing'));
   chatbox.scrollTo(0, chatbox.scrollHeight);
   chatInput.value = '';
 
-  // Add placeholder "Typing..."
+  // Add "Typing..." placeholder
   const typingLi = createChatLi('Typing...', 'chat-incoming');
   chatbox.appendChild(typingLi);
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
-  // Generate response with userMessage and the placeholder element
+  // Call API with user's message
   generateResponse(userMessage, typingLi);
 };
 
+// Event listener for send button
 sendChatBtn.addEventListener('click', handleChat);
+
+// Optional: support pressing Enter key in textarea
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    handleChat();
+  }
+});
