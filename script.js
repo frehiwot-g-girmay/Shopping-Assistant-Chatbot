@@ -2,7 +2,7 @@ const chatInput = document.querySelector('.chat-input textarea');
 const sendChatBtn = document.querySelector('.chat-input button');
 const chatbox = document.querySelector('.chatbox');
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 const createChatLi = (message, className) => {
   const chatLi = document.createElement('li');
@@ -11,7 +11,7 @@ const createChatLi = (message, className) => {
   return chatLi;
 };
 
-const generateResponse = (incomingChatLi) => {
+const generateResponse = (userMessage, incomingChatLi) => {
   const messageElement = incomingChatLi.querySelector('p');
 
   fetch('https://api.openai.com/v1/chat/completions', {
@@ -54,7 +54,7 @@ const generateResponse = (incomingChatLi) => {
 };
 
 const handleChat = () => {
-  userMessage = chatInput.value.trim();
+  const userMessage = chatInput.value.trim();
   if (!userMessage) return;
 
   // Add user message to chat
@@ -67,8 +67,8 @@ const handleChat = () => {
   chatbox.appendChild(typingLi);
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
-  // Generate response
-  generateResponse(typingLi);
+  // Generate response with userMessage and the placeholder element
+  generateResponse(userMessage, typingLi);
 };
 
 sendChatBtn.addEventListener('click', handleChat);
